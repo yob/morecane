@@ -1,0 +1,51 @@
+= Morecane
+
+== What?
+
+The cane gem provides a great framework for running quality checks over your
+ruby project as part of continuous integration build. It comes with a few
+checks out of the box, but also provides an API for loading custom checks.
+
+This gem provides a set of additional checks that I use across my projects.
+Maybe you'll find the useful as well.
+
+== How?
+
+Install this project like any rubygem:
+
+    gem install morecane
+
+Or add it to your Gemfile:
+
+    gem 'morecane'
+
+Then create a new rake task and load in the checks you require
+
+    require 'cane/rake_task'
+    require 'morecane'
+
+    desc "Run cane to check quality metrics"
+    Cane::RakeTask.new(:quality) do |cane|
+      cane.use Morecane::EncodingCheck, encoding_glob: "{app,lib,spec}/**/*.rb"
+    end
+
+=== Checks
+
+Here is a list of the checks available in this gem and the options they take.
+
+==== Morecane::EncodingCheck
+
+Ensure files have a ruby "encoding" marker in the first two lines
+
+* encoding_glob - a string to specify the files to check. You probably want
+  something list "{app,lib,spec}/**/*.rb"
+
+== Who?
+
+This gem is written and maintained by James Healy <jame@yob.id.au>
+
+== More?
+
+For more information on cane, check out it's comprehensive README
+
+    https://github.com/square/cane
