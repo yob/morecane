@@ -48,6 +48,14 @@ Ensure files match a given regular expression.
   something list "{app,lib}/**/*.rb"
 * match_regexp - a regular expression to check each file against
 
+==== Morecane::NoMatchCheck
+
+Ensure files do not match a given regular expression.
+
+* nomatch_glob - a string to specify the files to check. You probably want
+  something list "{app,lib}/**/*.rb"
+* nomatch_regexp - a regular expression to check each file against
+
 == Who?
 
 This gem is written and maintained by James Healy <james@yob.id.au>
