@@ -35,14 +35,14 @@ Here is a list of the checks available in this gem and the options they take.
 
 ==== Morecane::EncodingCheck
 
-Ensure files have a ruby "encoding" marker in the first two lines
+Ensure files have a ruby encoding marker in the first two lines
 
 * encoding_glob - a string to specify the files to check. You probably want
   something list "{app,lib,spec}/**/*.rb"
 
 == Who?
 
-This gem is written and maintained by James Healy <jame@yob.id.au>
+This gem is written and maintained by James Healy <james@yob.id.au>
 
 == More?
 
