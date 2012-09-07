@@ -13,7 +13,8 @@ puts 3
 
   context "with a regexp that doesn't match the file" do
     it 'creates a violation' do
-      opts = {:must_not_match_glob => file_name, :must_not_match_regexp => /puts 4/m}
+      opts = {:must_not_match_glob => file_name,
+              :must_not_match_regexp => /puts 4/m}
       violations = described_class.new(opts).violations
       violations.length.should == 0
     end
@@ -21,7 +22,8 @@ puts 3
 
   context "with a regexp that matches the file" do
     it 'creates no violations' do
-      opts = {:must_not_match_glob => file_name, :must_not_match_regexp => /puts 2/m}
+      opts = {:must_not_match_glob => file_name,
+              :must_not_match_regexp => /puts 2/m}
       violations = described_class.new(opts).violations
       violations.length.should == 1
 
