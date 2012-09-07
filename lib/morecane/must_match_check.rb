@@ -3,16 +3,16 @@
 module Morecane
   # Creates violations for ruby files that don't match a given regexp
   #
-  class MatchCheck < Struct.new(:opts)
+  class MustMatchCheck < Struct.new(:opts)
     def self.options
       {
-        match_glob: ['Glob to run match checks over',
-                     default:  '{app,lib,spec}/**/*.rb',
-                     variable: 'GLOB',
-                     clobber:  :no_match],
-        match_regexp: ['Regexp to check files against',
-                     variable: 'REGEXP',
-                     clobber:  :no_match],
+        must_match_glob: ['Glob to run match checks over',
+                          default:  '{app,lib,spec}/**/*.rb',
+                          variable: 'GLOB',
+                          clobber:  :no_must_match],
+        must_match_regexp: ['Regexp to check files against',
+                            variable: 'REGEXP',
+                            clobber:  :no_must_match],
       }
     end
 
@@ -27,7 +27,7 @@ module Morecane
     def find_violations(file_name)
       data = ::File.open(file_name, 'r:utf-8').read
 
-      if !data.match(opts.fetch(:match_regexp))
+      if !data.match(opts.fetch(:must_match_regexp))
         {
           description: "Source file doesn't match regexp",
           file:        file_name
@@ -36,7 +36,7 @@ module Morecane
     end
 
     def file_names
-      Dir[opts.fetch(:match_glob)]
+      Dir[opts.fetch(:must_match_glob)]
     end
 
   end

@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe Morecane::MatchCheck do
+describe Morecane::MustMatchCheck do
   let!(:file_name) {
     make_file <<-RUBY
 puts 1
@@ -13,7 +13,7 @@ puts 3
 
   context "with a regexp that doesn't match the file" do
     it 'creates a violation' do
-      opts = {:match_glob => file_name, :match_regexp => /puts 4/m}
+      opts = {:must_match_glob => file_name, :must_match_regexp => /puts 4/m}
       violations = described_class.new(opts).violations
       violations.length.should == 1
 
@@ -24,7 +24,7 @@ puts 3
 
   context "with a regexp that matches the file" do
     it 'creates no violations' do
-      opts = {:match_glob => file_name, :match_regexp => /puts 2/m}
+      opts = {:must_match_glob => file_name, :must_match_regexp => /puts 2/m}
       violations = described_class.new(opts).violations
       violations.length.should == 0
     end

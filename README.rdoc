@@ -40,13 +40,13 @@ Ensure files have a ruby encoding marker in the first two lines.
 * encoding_glob - a string to specify the files to check. You probably want
   something list "{app,lib,spec}/**/*.rb"
 
-==== Morecane::MatchCheck
+==== Morecane::MustMatchCheck
 
 Ensure files match a given regular expression.
 
-* match_glob - a string to specify the files to check. You probably want
+* must_match_glob - a string to specify the files to check. You probably want
   something list "{app,lib}/**/*.rb"
-* match_regexp - a regular expression to check each file against
+* must_match_regexp - a regular expression to check each file against
 
 ==== Morecane::NoMatchCheck
 
