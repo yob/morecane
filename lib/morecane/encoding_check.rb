@@ -22,10 +22,14 @@ module Morecane
     private
 
     def find_violations(file_name)
-      data = ::File.open(file_name, 'r:utf-8')
-      line_one, line_two = *data.lines
+      lines = []
+      ::File.open(file_name, 'r:utf-8') do |data|
+        data.each_line do |line|
+          lines << line
+        end
+      end
 
-      if !line_one.to_s.match(/coding:/) && !line_two.to_s.match(/coding:/)
+      if !lines[0].to_s.match(/coding:/) && !lines[1].to_s.match(/coding:/)
         {
           description: "Source file missing an encoding marker",
           file:        file_name
