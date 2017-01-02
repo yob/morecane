@@ -15,10 +15,10 @@ puts 3
     it 'creates a violation' do
       opts = {:must_match_glob => file_name, :must_match_regexp => /puts 4/m}
       violations = described_class.new(opts).violations
-      violations.length.should == 1
+      expect(violations.length).to eq(1)
 
-      violations[0].should be_instance_of(Hash)
-      violations[0][:file].should == file_name
+      expect(violations[0]).to be_instance_of(Hash)
+      expect(violations[0][:file]).to eq(file_name)
     end
   end
 
@@ -26,7 +26,7 @@ puts 3
     it 'creates no violations' do
       opts = {:must_match_glob => file_name, :must_match_regexp => /puts 2/m}
       violations = described_class.new(opts).violations
-      violations.length.should == 0
+      expect(violations.length).to eq(0)
     end
   end
 
