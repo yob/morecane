@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name              = "morecane"
-  s.version           = "0.1.0"
+  s.version           = "0.2.0"
   s.summary           = "Extra checks for the cane gem"
   s.description       = "A set of common checks that I use with cane across my projects"
   s.author            = "James Healy"
