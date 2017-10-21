@@ -3,6 +3,7 @@ Gem::Specification.new do |s|
   s.version           = "0.2.0"
   s.summary           = "Extra checks for the cane gem"
   s.description       = "A set of common checks that I use with cane across my projects"
+  s.license           = "MIT"
   s.author            = "James Healy"
   s.email             = ["james@yob.id.au"]
   s.homepage          = "http://github.com/yob/morecane"
